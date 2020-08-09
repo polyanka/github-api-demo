@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": ["src/*"],
+    },
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true, //Allow JavaScript files to be compiled
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true, //	Include modules imported with .json extension
+    "isolatedModules": true, //Perform additional checks to ensure that separate compilation
+    "noEmit": true,
+    "jsx": "react",
+    "alwaysStrict": true,
+    "noImplicitAny": true //Raise error on expressions and declarations with an implied any type
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
