@@ -1,28 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SearchPanel />  renders correctly if prop searchValue set login 1`] = `
-<WithStyles(ForwardRef(Grid))
-  container={true}
->
-  <WithStyles(ForwardRef(FormControl))
-    fullWidth={true}
-    variant="outlined"
-  >
-    <WithStyles(ForwardRef(InputLabel))
-      htmlFor="Search"
-    >
-      Login
-    </WithStyles(ForwardRef(InputLabel))>
-    <WithStyles(ForwardRef(OutlinedInput))
-      labelWidth={40}
-      onChange={[Function]}
-      value="login"
-    />
-  </WithStyles(ForwardRef(FormControl))>
-</WithStyles(ForwardRef(Grid))>
-`;
-
-exports[`<SearchPanel />  renders correctly with default props 1`] = `
+exports[`<SearchPanel />  renders correctly SearchPanel component 1`] = `
 <WithStyles(ForwardRef(Grid))
   container={true}
 >

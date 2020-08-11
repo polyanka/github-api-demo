@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<RepoCard /> renders correctly with props 1`] = `
+exports[`<RepoCard /> renders correctly RepoCard component 1`] = `
 <WithStyles(ForwardRef(TableContainer))
   component={
     Object {
@@ -431,7 +431,7 @@ exports[`<RepoCard /> renders correctly with props 1`] = `
         </WithStyles(ForwardRef(TableCell))>
         <WithStyles(ForwardRef(TableCell))>
           <WithStyles(ForwardRef(IconButton))
-            aria-label="open new tab"
+            aria-label="Open new tab"
             href="https://www.example1.com"
             target="_blank"
           >
@@ -519,7 +519,7 @@ exports[`<RepoCard /> renders correctly with props 1`] = `
         </WithStyles(ForwardRef(TableCell))>
         <WithStyles(ForwardRef(TableCell))>
           <WithStyles(ForwardRef(IconButton))
-            aria-label="open new tab"
+            aria-label="Open new tab"
             href="https://www.example2.com"
             target="_blank"
           >

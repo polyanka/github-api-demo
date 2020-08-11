@@ -6,14 +6,14 @@ import { SearchPanel } from './index';
 describe('<SearchPanel /> ', () => {
   const fn = jest.fn();
 
-  it('renders correctly with default props', () => {
+  it('renders correctly SearchPanel component', () => {
     const wrapper = shallow(<SearchPanel searchValue='' setSearchValue={fn} />);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('renders correctly if prop searchValue set login', () => {
-    const wrapper = shallow(<SearchPanel searchValue='login' setSearchValue={fn} />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<SearchPanel searchValue='login' setSearchValue={fn} />);
+    expect(wrapper.find('input').prop('value')).toEqual('login');
   });
 
   it('should call onChange prop with input value', () => {

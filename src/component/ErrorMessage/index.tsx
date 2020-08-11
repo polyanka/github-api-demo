@@ -1,11 +1,11 @@
 import { Grid, Typography } from '@material-ui/core';
 import React from 'react';
 
-export const ErrorMessage = () => {
+export const ErrorMessage = ({ message = 'Typo An Error Occurred, Please Try Again Later!' }) => {
   return (
-    <Grid item spacing={4}>
+    <Grid item>
       <Typography variant='h5' color='error'>
-        Typo An Error Occurred, Please Try Again Later!
+        {message}
       </Typography>
     </Grid>
   );

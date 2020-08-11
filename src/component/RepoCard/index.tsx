@@ -90,7 +90,7 @@ export const RepoCard = ({ repos, sort: { order, orderBy }, changeSort, page, pa
               <TableCell align='right'>{repo.language}</TableCell>
               <TableCell align='right'>{repo.created_at.replace(/[T|Z]+/g, ' ')}</TableCell>
               <TableCell>
-                <IconButton aria-label='open new tab' href={repo.html_url} target='_blank'>
+                <IconButton aria-label='Open new tab' href={repo.html_url} target='_blank'>
                   <OpenInNewOutlined fontSize='small' />
                 </IconButton>
               </TableCell>
