@@ -11,10 +11,10 @@ export interface IUsers {
 export interface IUser extends IUserBase {
   name: string;
   blog: string;
-  location: string;
+  location: string | null;
   public_repos: number;
   public_gists: number;
   followers: number;
   following: number;
-  company: string;
+  company: string | null;
 }

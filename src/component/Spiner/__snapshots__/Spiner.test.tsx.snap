@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Spiner /> renders correctly Spiner component 1`] = `
+<WithStyles(ForwardRef(Grid))
+  alignItems="center"
+  container={true}
+  direction="column"
+  justify="center"
+  spacing={4}
+  style={
+    Object {
+      "height": 260,
+    }
+  }
+>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+    xs={2}
+  >
+    <WithStyles(ForwardRef(CircularProgress)) />
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;

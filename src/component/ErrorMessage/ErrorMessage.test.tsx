@@ -1,11 +1,11 @@
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import * as React from 'react';
 
 import { ErrorMessage } from './index';
 
 describe('<ErrorMessage /> ', () => {
   it('renders correctly ErrorMessage component', () => {
-    const wrapper = mount(<ErrorMessage />);
+    const wrapper = shallow(<ErrorMessage />);
     expect(wrapper).toMatchSnapshot();
   });
 

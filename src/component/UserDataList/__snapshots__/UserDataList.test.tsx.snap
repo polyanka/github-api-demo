@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserDataList /> renders correctly UserDataList component 1`] = `
+<WithStyles(ForwardRef(Grid))
+  container={true}
+>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+    xs={12}
+  >
+    <WithStyles(ForwardRef(CardMedia))
+      image="https://www.example.com/avatar_url.png"
+      style={
+        Object {
+          "height": 240,
+          "width": "100%",
+        }
+      }
+      title="Login"
+    />
+    <WithStyles(ForwardRef(CardContent))>
+      <WithStyles(ForwardRef(Typography))
+        color="primary"
+        gutterBottom={true}
+        variant="h5"
+      >
+        User
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        variant="h5"
+      >
+        Login
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(CardContent))>
+    <WithStyles(ForwardRef(List))>
+      <WithStyles(ForwardRef(ListItem))>
+        <WithStyles(ForwardRef(ListItemIcon))>
+          <PeopleAltOutlinedIcon
+            color="primary"
+          />
+        </WithStyles(ForwardRef(ListItemIcon))>
+        <WithStyles(ForwardRef(ListItemText))
+          primary="Followers"
+          secondary={2}
+        />
+      </WithStyles(ForwardRef(ListItem))>
+      <WithStyles(ForwardRef(ListItem))>
+        <WithStyles(ForwardRef(ListItemIcon))>
+          <EmojiPeopleOutlinedIcon
+            color="primary"
+          />
+        </WithStyles(ForwardRef(ListItemIcon))>
+        <WithStyles(ForwardRef(ListItemText))
+          primary="Following"
+          secondary={0}
+        />
+      </WithStyles(ForwardRef(ListItem))>
+      <WithStyles(ForwardRef(ListItem))>
+        <WithStyles(ForwardRef(ListItemIcon))>
+          <StarBorderOutlinedIcon
+            color="primary"
+          />
+        </WithStyles(ForwardRef(ListItemIcon))>
+        <WithStyles(ForwardRef(ListItemText))
+          primary="Start Repos"
+          secondary={0}
+        />
+      </WithStyles(ForwardRef(ListItem))>
+      <WithStyles(ForwardRef(ListItem))
+        button={true}
+        component="a"
+        href="https://www.example-blog.com"
+        target="_blank"
+      >
+        <WithStyles(ForwardRef(ListItemIcon))>
+          <LinkOutlinedIcon
+            color="primary"
+          />
+        </WithStyles(ForwardRef(ListItemIcon))>
+        <WithStyles(ForwardRef(ListItemText))
+          primary="Blog"
+          secondary="https://www.example-blog.com"
+        />
+      </WithStyles(ForwardRef(ListItem))>
+    </WithStyles(ForwardRef(List))>
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;

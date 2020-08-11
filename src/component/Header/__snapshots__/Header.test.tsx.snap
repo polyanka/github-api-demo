@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders correctly Header component 1`] = `
+<WithStyles(ForwardRef(AppBar))
+  position="static"
+>
+  <WithStyles(ForwardRef(Toolbar))>
+    <WithStyles(ForwardRef(Typography))
+      noWrap={true}
+      variant="h6"
+    >
+      MyGitHub
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(Link))
+      component={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "Link",
+          "propTypes": Object {
+            "innerRef": [Function],
+            "onClick": [Function],
+            "replace": [Function],
+            "target": [Function],
+            "to": [Function],
+          },
+          "render": [Function],
+        }
+      }
+      style={
+        Object {
+          "color": "#fff",
+          "paddingLeft": 16,
+        }
+      }
+      to="/"
+    >
+      Users
+    </WithStyles(ForwardRef(Link))>
+  </WithStyles(ForwardRef(Toolbar))>
+</WithStyles(ForwardRef(AppBar))>
+`;
