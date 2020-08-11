@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserBaseData />  renders correctly with props 1`] = `
+<WithStyles(ForwardRef(Card))
+  style={
+    Object {
+      "maxWidth": 345,
+      "padding": 16,
+    }
+  }
+>
+  <WithStyles(ForwardRef(CardContent))>
+    <WithStyles(ForwardRef(CardMedia))
+      image="avatar_url"
+      style={
+        Object {
+          "height": 140,
+        }
+      }
+      title="login"
+    />
+    <WithStyles(ForwardRef(Typography))
+      component="h2"
+      gutterBottom={true}
+      variant="h5"
+    >
+      login
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(CardContent))>
+  <WithStyles(ForwardRef(CardActions))>
+    <WithStyles(ForwardRef(Button))
+      color="primary"
+      component={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "Link",
+          "propTypes": Object {
+            "innerRef": [Function],
+            "onClick": [Function],
+            "replace": [Function],
+            "target": [Function],
+            "to": [Function],
+          },
+          "render": [Function],
+        }
+      }
+      size="medium"
+      to="/user/login"
+      variant="contained"
+    >
+      Open
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(CardActions))>
+</WithStyles(ForwardRef(Card))>
+`;

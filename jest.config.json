@@ -1,0 +1,8 @@
+{
+    "rootDir": "./",
+    "moduleNameMapper": {
+      "^@src/(.*)": "<rootDir>/src/$1"
+    },
+    "setupFilesAfterEnv": ["<rootDir>/setupTests.ts"],
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
+}
