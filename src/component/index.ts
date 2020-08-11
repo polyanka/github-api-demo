@@ -1,3 +1,4 @@
+export * from './Header';
 export * from './ErrorMessage';
 export * from './Layout';
 export * from './SearchPanel';

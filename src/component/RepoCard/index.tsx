@@ -18,7 +18,7 @@ import { IRepo } from '@src/model/repo';
 import { ISort } from '@src/store/types';
 import React from 'react';
 
-interface IRepoCard {
+export interface IRepoCard {
   repos: IRepo[];
   sort: ISort;
   changeSort: (sort: ISort) => void;
@@ -56,62 +56,60 @@ export const RepoCard = ({ repos, sort: { order, orderBy }, changeSort, page, pa
   };
 
   return (
-    <>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              {getSortTableCell('full_name', 'Name')}
-              <TableCell align='right'>Language</TableCell>
-              {getSortTableCell('created_at', 'Сreated')}
-              <TableCell />
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {repos.map((repo: IRepo) => (
-              <TableRow key={repo.id}>
-                <TableCell component='th' scope='row'>
-                  <Typography gutterBottom variant='subtitle1'>
-                    {repo.name}
-                  </Typography>
-                  <Typography variant='subtitle2'>{repo.description}</Typography>
-                  <Grid container direction='row' alignItems='center'>
-                    <Grid item style={{ paddingRight: 4 }}>
-                      <PeopleAltOutlined color='primary' fontSize='small' />
-                    </Grid>
-                    <Grid item style={{ marginRight: 16 }}>
-                      {repo.watchers_count}
-                    </Grid>
-                    <Grid item style={{ paddingRight: 4 }}>
-                      <StarBorderOutlined color='primary' fontSize='small' />
-                    </Grid>
-                    <Grid item>{repo.stargazers_count}</Grid>
+    <TableContainer component={Paper}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            {getSortTableCell('full_name', 'Name')}
+            <TableCell align='right'>Language</TableCell>
+            {getSortTableCell('created_at', 'Сreated')}
+            <TableCell />
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {repos.map((repo: IRepo) => (
+            <TableRow key={repo.id}>
+              <TableCell component='th' scope='row'>
+                <Typography gutterBottom variant='subtitle1'>
+                  {repo.name}
+                </Typography>
+                <Typography variant='subtitle2'>{repo.description}</Typography>
+                <Grid container direction='row' alignItems='center'>
+                  <Grid item style={{ paddingRight: 4 }}>
+                    <PeopleAltOutlined color='primary' fontSize='small' />
                   </Grid>
-                </TableCell>
-                <TableCell align='right'>{repo.language}</TableCell>
-                <TableCell align='right'>{repo.created_at.replace(/[T|Z]+/g, ' ')}</TableCell>
-                <TableCell>
-                  <IconButton aria-label='open new tab' href={repo.html_url} target='_blank'>
-                    <OpenInNewOutlined fontSize='small' />
-                  </IconButton>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-          <TableFooter>
-            <TableRow>
-              <TablePagination
-                colSpan={4}
-                count={pages}
-                rowsPerPage={30}
-                page={page - 1}
-                onChangePage={handleChangePage}
-                rowsPerPageOptions={[]}
-              />
+                  <Grid item style={{ marginRight: 16 }}>
+                    {repo.watchers_count}
+                  </Grid>
+                  <Grid item style={{ paddingRight: 4 }}>
+                    <StarBorderOutlined color='primary' fontSize='small' />
+                  </Grid>
+                  <Grid item>{repo.stargazers_count}</Grid>
+                </Grid>
+              </TableCell>
+              <TableCell align='right'>{repo.language}</TableCell>
+              <TableCell align='right'>{repo.created_at.replace(/[T|Z]+/g, ' ')}</TableCell>
+              <TableCell>
+                <IconButton aria-label='open new tab' href={repo.html_url} target='_blank'>
+                  <OpenInNewOutlined fontSize='small' />
+                </IconButton>
+              </TableCell>
             </TableRow>
-          </TableFooter>
-        </Table>
-      </TableContainer>
-    </>
+          ))}
+        </TableBody>
+        <TableFooter>
+          <TableRow>
+            <TablePagination
+              colSpan={4}
+              count={pages}
+              rowsPerPage={30}
+              page={page - 1}
+              onChangePage={handleChangePage}
+              rowsPerPageOptions={[]}
+            />
+          </TableRow>
+        </TableFooter>
+      </Table>
+    </TableContainer>
   );
 };
