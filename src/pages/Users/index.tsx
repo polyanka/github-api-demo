@@ -6,18 +6,9 @@ import { usePrevious } from '@src/hooks';
 import { IUserBase } from '@src/model/user';
 import { IAppState } from '@src/store/index';
 import { ISort } from '@src/store/types';
-import { ThunkDispatchType, getUsersAction, setLoginForSearchAction } from '@src/store/Users/action';
+import { getUsersAction, setLoginForSearchAction } from '@src/store/Users/action';
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-
-interface IUsersProps {
-  users: IUserBase[] | null;
-  searchLogin: string;
-  loading: boolean;
-  error: boolean;
-  getUsers: (login: string, sort: ISort) => void;
-  setLoginForSearch: (searchLogin: string) => void;
-}
+import { useDispatch, useSelector } from 'react-redux';
 
 const sortFields = ['repositories', 'followers', 'joined'];
 
@@ -35,25 +26,28 @@ const SortButton = withStyles({
   },
 })(Button);
 
-export const Users = ({ users, searchLogin, loading, error, getUsers, setLoginForSearch }: IUsersProps) => {
+export const UsersPage = () => {
+  const { users, searchLogin, loading, error } = useSelector((state: IAppState) => state.users);
   const initalState: ISort = { order: 'desc', orderBy: 'repositories' };
   const [sort, changeSort] = useState<ISort>(initalState);
 
   const prevSearchLoginRef = usePrevious(searchLogin);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (searchLogin.length) {
       if (prevSearchLoginRef !== searchLogin) {
         const timeoutID = window.setTimeout(() => {
-          getUsers(searchLogin, sort);
+          dispatch(getUsersAction(searchLogin, sort));
         }, 500);
 
         return () => window.clearTimeout(timeoutID);
       }
 
-      getUsers(searchLogin, sort);
+      dispatch(getUsersAction(searchLogin, sort));
     }
-  }, [getUsers, searchLogin, sort]);
+  }, [searchLogin, sort]);
 
   const handleSort = (name: string) => {
     const { order, orderBy } = sort;
@@ -66,6 +60,10 @@ export const Users = ({ users, searchLogin, loading, error, getUsers, setLoginFo
         orderBy: name,
       });
     }
+  };
+
+  const handleSetSearchValue = (searchLogin: string) => {
+    dispatch(setLoginForSearchAction(searchLogin));
   };
 
   const UserList = () => {
@@ -103,7 +101,7 @@ export const Users = ({ users, searchLogin, loading, error, getUsers, setLoginFo
   return (
     <Grid container spacing={4}>
       <Grid item xs={12}>
-        <SearchPanel searchValue={searchLogin} setSearchValue={setLoginForSearch} />
+        <SearchPanel searchValue={searchLogin} setSearchValue={handleSetSearchValue} />
       </Grid>
 
       {users == null ? (
@@ -132,17 +130,3 @@ export const Users = ({ users, searchLogin, loading, error, getUsers, setLoginFo
     </Grid>
   );
 };
-
-const mapStateToProps = ({ users: { users, searchLogin, loading, error } }: IAppState) => ({
-  users,
-  searchLogin,
-  loading,
-  error,
-});
-
-const mapDispatchToProps = (dispatch: ThunkDispatchType) => ({
-  getUsers: (login: string, sort: ISort) => dispatch(getUsersAction(login, sort)),
-  setLoginForSearch: (searchLogin: string) => dispatch(setLoginForSearchAction(searchLogin)),
-});
-
-export const UsersPage = connect(mapStateToProps, mapDispatchToProps)(Users);
