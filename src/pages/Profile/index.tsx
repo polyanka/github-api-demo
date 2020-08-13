@@ -10,8 +10,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 export const ProfilePage = (): React.ReactElement => {
-  const { user, loading: isLoadingUser, error: isErrorUser } = useSelector((state: IAppState) => state.user);
-  const { repos, loading: isLoadingRepos, error: isErrorRepos } = useSelector((state: IAppState) => state.repos);
+  const {
+    user: { user: user, loading: isLoadingUser, error: isErrorUser },
+    repos: { repos, loading: isLoadingRepos, error: isErrorRepos },
+  } = useSelector((state: IAppState) => state);
   const { login }: { login: string } = useParams();
 
   const initalState: ISort = { order: 'desc', orderBy: 'full_name' };
@@ -38,22 +40,20 @@ export const ProfilePage = (): React.ReactElement => {
     if (isErrorRepos || !repos?.length) {
       return (
         <Grid item>
-          <h3>We couldn’t find any repositories on {login} </h3>
+          <h3>We couldn’t find any repositories on {login}</h3>
         </Grid>
       );
     }
 
     return user ? (
-      <>
-        <RepoCard
-          repos={repos}
-          sort={sort}
-          changeSort={changeSort}
-          page={page}
-          pages={user.public_repos}
-          changePage={changePage}
-        />
-      </>
+      <RepoCard
+        repos={repos}
+        sort={sort}
+        changeSort={changeSort}
+        page={page}
+        pages={user.public_repos}
+        changePage={changePage}
+      />
     ) : null;
   };
 
