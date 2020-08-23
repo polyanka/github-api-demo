@@ -1,15 +1,15 @@
 {
-  "name": "rools",
+  "name": "github-api-demo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "App with GitHub API using React, Redux, Typescript and Material-UI",
+  "main": "index.tsx",
   "scripts": {
     "start": "webpack-dev-server --open --watch --hot --mode development",
     "build": "webpack --mode production",
     "test": "jest --watchAll"
   },
   "keywords": [],
-  "author": "",
+  "author": "polyanka",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.3",
