@@ -1,4 +1,5 @@
 import { Grid } from '@material-ui/core';
+import { ContactlessTwoTone } from '@material-ui/icons';
 import { ErrorMessage, SearchPanel, Spiner } from '@src/component';
 import { usePrevious } from '@src/hooks';
 import { IAppState } from '@src/store/index';
@@ -7,14 +8,13 @@ import { getUsersAction, setLoginForSearchAction } from '@src/store/Users/action
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ReposSortBlock } from './ReposSortBlock';
-import { UserList } from './UserList';
+import { ReposSortBlock } from './ReposSortBlock/';
+import { UserList } from './UserList/';
 
 export const UsersPage = () => {
   const { users, searchLogin, loading, error } = useSelector((state: IAppState) => state.users);
   const initalState: ISort = { order: 'desc', orderBy: 'repositories' };
   const [sort, changeSort] = useState<ISort>(initalState);
-
   const prevSearchLoginRef = usePrevious(searchLogin);
 
   const dispatch = useDispatch();

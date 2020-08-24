@@ -19,9 +19,5 @@ export const UserList = ({ users }: IProps) => {
     );
   }
 
-  return (
-    <Grid item xs={12}>
-      <h3>We couldn’t find any users</h3>
-    </Grid>
-  );
+  return <h3>We couldn’t find any users</h3>;
 };
