@@ -1,7 +1,7 @@
 {
   "name": "github-api-demo",
   "version": "1.0.0",
-  "description": "App with GitHub API using React, Redux, Typescript and Material-UI",
+  "description": "App with GitHub API using React, Redux, Redux-Thunk, Typescript and Material-UI",
   "main": "index.tsx",
   "scripts": {
     "start": "webpack-dev-server --open --watch --hot --mode development",

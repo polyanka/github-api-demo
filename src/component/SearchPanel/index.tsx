@@ -8,7 +8,7 @@ interface IProps {
 
 export const SearchPanel = ({ setSearchValue, searchValue }: IProps) => {
   return (
-    <Grid container>
+    <Grid item xs={12}>
       <FormControl variant='outlined' fullWidth>
         <InputLabel htmlFor='Search'>Login</InputLabel>
         <OutlinedInput value={searchValue} onChange={(event) => setSearchValue(event.target.value)} labelWidth={40} />

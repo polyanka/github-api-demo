@@ -1,6 +1,6 @@
 # github-api-demo
 
-App with GitHub API using React, Redux, Typescript and Material-UI
+App with GitHub API using React, Redux, Redux-Thunk, Typescript and Material-UI
 
 ### Get github OAuth token
 1. Login to github
