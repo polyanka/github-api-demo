@@ -1,20 +1,11 @@
-import { repos } from '@src/model/__mocks__/repo';
 import { user } from '@src/model/__mocks__/user';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import * as React from 'react';
 import * as ReactRedux from 'react-redux';
 import ReactRouter from 'react-router';
 
 import { ProfilePage } from './index';
 
-const initialState = {
-  user: { user: null, loading: true, error: false },
-  repos: {
-    repos: null,
-    loading: false,
-    error: false,
-  },
-};
 const login = 'polyanka';
 
 describe('<ProfilePage />', () => {
@@ -26,55 +17,67 @@ describe('<ProfilePage />', () => {
   });
 
   it('start render <ProfilePage />', () => {
-    jest.spyOn(ReactRedux, 'useSelector').mockReturnValue(initialState);
-
-    const wrapper = mount(<ProfilePage />);
-
-    expect(wrapper.find('Spiner')).toHaveLength(1);
-    expect(wrapper.find('RepoCard')).toHaveLength(0);
-  });
-
-  it('render user data and start get repos data', () => {
     jest.spyOn(ReactRedux, 'useSelector').mockReturnValue({
-      ...initialState,
-      repos: { ...initialState.repos, loading: true },
-      user: { ...initialState.user, loading: false, user },
+      user: null,
+      loading: true,
+      error: false,
     });
 
-    const wrapper = mount(<ProfilePage />);
+    const wrapper = shallow(<ProfilePage />);
 
     expect(wrapper.find('Spiner')).toHaveLength(1);
-    expect(wrapper.find('UserDataList')).toHaveLength(1);
-    expect(wrapper.find('RepoCard')).toHaveLength(0);
+    expect(wrapper.find('ErrorMessage')).toHaveLength(0);
+    expect(wrapper.find('NotFound')).toHaveLength(0);
+    expect(wrapper.find('UserDataList')).toHaveLength(0);
   });
 
-  it('renders correctly ProfilePage component with user data and repos', () => {
+  it('renders correctly ProfilePage component with user data', () => {
     jest.spyOn(ReactRedux, 'useSelector').mockReturnValue({
-      ...initialState,
-      repos: { ...initialState.repos, repos },
-      user: { ...initialState.user, loading: false, user },
+      user,
+      loading: false,
+      error: false,
     });
-    const wrapper = mount(<ProfilePage />);
+
+    const wrapper = shallow(<ProfilePage />);
 
     expect(wrapper.find('Spiner')).toHaveLength(0);
+    expect(wrapper.find('ErrorMessage')).toHaveLength(0);
+    expect(wrapper.find('NotFound')).toHaveLength(0);
     expect(wrapper.find('UserDataList')).toHaveLength(1);
-    expect(wrapper.find('RepoCard')).toHaveLength(1);
+    expect(wrapper.find('ReposList')).toHaveLength(1);
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('render user data and repo not found', () => {
+  it('render ErrorMessage', () => {
     jest.spyOn(ReactRedux, 'useSelector').mockReturnValue({
-      ...initialState,
-      user: { ...initialState.user, loading: false, user },
+      user: null,
+      loading: false,
+      error: true,
     });
-    const wrapper = mount(<ProfilePage />);
+
+    const wrapper = shallow(<ProfilePage />);
 
     expect(wrapper.find('Spiner')).toHaveLength(0);
-    expect(wrapper.find('UserDataList')).toHaveLength(1);
-    expect(wrapper.find('RepoCard')).toHaveLength(0);
-    expect(wrapper.find('RepoCardBlock').children().find('h3').text()).toBe(
-      `We couldn’t find any repositories on ${login}`,
-    );
+    expect(wrapper.find('ErrorMessage')).toHaveLength(1);
+    expect(wrapper.find('NotFound')).toHaveLength(0);
+    expect(wrapper.find('UserDataList')).toHaveLength(0);
+    expect(wrapper.find('ReposList')).toHaveLength(0);
+  });
+
+  it('render NotFound', () => {
+    jest.spyOn(ReactRedux, 'useSelector').mockReturnValue({
+      user: null,
+      loading: false,
+      error: false,
+    });
+
+    const wrapper = shallow(<ProfilePage />);
+
+    expect(wrapper.find('Spiner')).toHaveLength(0);
+    expect(wrapper.find('ErrorMessage')).toHaveLength(0);
+    expect(wrapper.find('NotFound')).toHaveLength(1);
+    expect(wrapper.find('UserDataList')).toHaveLength(0);
+    expect(wrapper.find('ReposList')).toHaveLength(0);
   });
 });

@@ -1,5 +1,5 @@
 import { Table, TableBody, TableRow, TableSortLabel } from '@material-ui/core';
-import { repos } from '@src/model/__mocks__/repo';
+import { repos } from '@src/model/__mocks__/repos';
 import { shallow } from 'enzyme';
 import * as React from 'react';
 

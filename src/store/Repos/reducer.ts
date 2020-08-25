@@ -10,7 +10,7 @@ export type IReposState = {
 
 export const initialState: IReposState = {
   repos: null,
-  loading: false,
+  loading: true,
   error: false,
 };
 

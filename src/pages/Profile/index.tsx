@@ -20,37 +20,29 @@ export const ProfilePage = (): React.ReactElement => {
     dispatch(getProfileByLoginAction(login));
   }, [dispatch, login]);
 
-  const ProfileBlock = () => {
-    if (loading) {
-      return <Spiner />;
-    }
+  if (loading) {
+    return <Spiner />;
+  }
 
-    if (error) {
-      return <ErrorMessage />;
-    }
+  if (error) {
+    return <ErrorMessage />;
+  }
 
-    if (user == null) {
-      return <NotFound />;
-    }
-
-    return (
-      <>
-        <Grid item xs={12} md={4}>
-          <UserDataList user={user} />
-        </Grid>
-        <Grid container item xs={12} md={8} direction='column' alignItems='stretch'>
-          <Typography gutterBottom variant='h5'>
-            Repositories
-          </Typography>
-          <ReposList user={user} />
-        </Grid>
-      </>
-    );
-  };
+  if (user == null) {
+    return <NotFound />;
+  }
 
   return (
     <Grid container spacing={4}>
-      <ProfileBlock />
+      <Grid item xs={12} md={4}>
+        <UserDataList user={user} />
+      </Grid>
+      <Grid container item xs={12} md={8} direction='column' alignItems='stretch'>
+        <Typography gutterBottom variant='h5'>
+          Repositories
+        </Typography>
+        <ReposList user={user} />
+      </Grid>
     </Grid>
   );
 };

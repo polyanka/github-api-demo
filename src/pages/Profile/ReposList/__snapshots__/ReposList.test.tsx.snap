@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ReposList /> renders correctly ReposList component with repos data 1`] = `
+<RepoCard
+  changePage={[Function]}
+  changeSort={[Function]}
+  page={1}
+  pages={0}
+  repos={
+    Array [
+      Object {
+        "created_at": "2021-08-30T21:19:21Z",
+        "description": "description1",
+        "html_url": "https://www.example1.com",
+        "id": 1,
+        "language": "JavaScript",
+        "name": "name1",
+        "stargazers_count": 5,
+        "watchers_count": 3,
+      },
+      Object {
+        "created_at": "2021-09-30T22:56:01Z",
+        "description": "description2",
+        "html_url": "https://www.example2.com",
+        "id": 2,
+        "language": "TypeScript",
+        "name": "name2",
+        "stargazers_count": 1,
+        "watchers_count": 12,
+      },
+    ]
+  }
+  sort={
+    Object {
+      "order": "desc",
+      "orderBy": "full_name",
+    }
+  }
+/>
+`;
